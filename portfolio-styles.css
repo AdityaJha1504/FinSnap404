@@ -1,0 +1,201 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700;900&display=swap");
+
+/* General Reset and Typography */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3d060;
+  color: #1f2020;
+}
+
+.container {
+  width: min(120ch, 100%);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #f3d060;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 4px solid #25282a;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: transparent;
+  background-color: #f3d060;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #1f2020 0,
+    #1f2020 0.5px,
+    #f3d060 0,
+    #f3d060 50%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px #1f2020;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #a5282c;
+  color: #1f2020;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: #a5282c;
+}
+
+/* Cards and Modules */
+.card {
+  background-color: #f9f6ef;
+  border: 3px solid #25282a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 5px 5px 0px #25282a;
+}
+
+.card h2, .card h3 {
+  margin-top: 0;
+  color: #1f2020;
+}
+
+/* Buttons */
+.btn {
+  background-color: #5eb0e5;
+  color: #1f2020;
+  border: 2px solid #1f2020;
+  box-shadow: 3px 3px 0px #25282a;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #25282a;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: -2px -2px 0px #25282a;
+}
+
+/* Inputs and Forms */
+input, select {
+  background-color: #f9f6ef;
+  border: 3px solid #25282a;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 6px;
+}
+
+input:focus, select:focus {
+  border-color: #5eb0e5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(94, 176, 229, 0.3);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background-color: #fff;
+  border: 3px solid #25282a;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border-bottom: 2px solid #ebebe3;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #aee1cd;
+  color: #1f2020;
+}
+
+tr:hover {
+  background-color: #f3f3f3;
+}
+
+/* Charts */
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Education Page Styling */
+.portfolio-card {
+  border: 3px solid #25282a;
+  background-color: #5eb0e5;
+  box-shadow: 5px 5px 0px #25282a;
+  position: relative;
+  transition: 200ms ease-in-out;
+}
+
+.portfolio-card:hover {
+  transform: scale(1.02);
+}
+
+.portfolio-card header {
+  background-color: #a5282c;
+  color: #f9f6ef;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.portfolio-card h3 {
+  background-color: #1f2020;
+  color: #f9f6ef;
+  padding: 0.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 0px #5eb0e5;
+}
+
+.portfolio-card iframe {
+  width: 100%;
+  border: none;
+}
+
+.card-info {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #25282a;
+  font-size: 0.85rem;
+}
