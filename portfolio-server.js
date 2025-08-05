@@ -13,10 +13,15 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-// Serve dashboard UI
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'portfolio-dashboard.html'));
-});
+    res.sendFile(path.join(__dirname, 'landing.html'));
+  });
+  
+  app.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'portfolio-dashboard.html'));
+  });
+
+
 
 // Get all assets
 app.get('/api/assets', (req, res) => {

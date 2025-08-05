@@ -1,3 +1,4 @@
+
 const contactDialog = document.getElementById("confirm-dialog");
 const sendButton = document.getElementById("send-message");
 
@@ -40,9 +41,6 @@ for (let i = 0; i < logo.length; i++) {
 }
 
 sendButton.addEventListener("click", (e) => {
-  /*let offsetTop = e.target.offsetTop;
-           let offsetLeft = e.target.offsetLeft;
-           let offsetHeight = e.target.offsetHeight;*/
   let { offsetLeft, offsetTop, offsetHeight, offsetWidth } = e.target;
   let strClipPath =
     "polygon(" +
@@ -65,7 +63,21 @@ sendButton.addEventListener("click", (e) => {
   contactDialog.style.clipPath = strClipPath;
   contactDialog.style.transform = "translate(-25%, -25%)";
 
-  sendButton.classList.remove("hover-effect");
-  sendButton.classList.add("spinner");
-  setTimeout(closeContactForm, 1500);
+  const emailInput = document.getElementById("email").value.trim();
+  const passwordInput = document.getElementById("password").value;
+
+  // Front-end login validation
+  if (emailInput.toLowerCase() === "admin" && passwordInput === "password") {
+    sendButton.classList.remove("hover-effect");
+    sendButton.classList.add("spinner");
+
+    setTimeout(() => {
+      closeContactForm();
+      window.location.href = "/dashboard";
+    }, 1200);
+  } else {
+    alert("Invalid credentials. Try admin / password.");
+    sendButton.classList.remove("spinner");
+    sendButton.classList.add("hover-effect");
+  }
 });

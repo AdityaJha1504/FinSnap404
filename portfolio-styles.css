@@ -199,3 +199,42 @@ footer {
   color: #25282a;
   font-size: 0.85rem;
 }
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.education-section {
+  background: #fefefe;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.education-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-section p {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.education-links li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.education-links a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.education-links a:hover {
+  text-decoration: underline;
+}

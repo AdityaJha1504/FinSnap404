@@ -1,8 +1,10 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const summaryEl = document.getElementById("portfolio-summary");
   const assetTable = document.getElementById("portfolio-table-body");
   const form = document.getElementById("add-asset-form");
+
+
+
 
   // 🔽 Dependent Dropdown Logic with logos
   const typeSelect = document.getElementById("asset_type");
@@ -83,8 +85,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const performanceChart = new Chart(document.getElementById("performanceChart"), {
     type: "line",
-    data: { labels: [], datasets: [{ label: "Value Over Time", data: [], borderColor: "#007bff", fill: false }] },
-    options: { responsive: true }
+    data: {
+      labels: [],
+      datasets: [{
+        label: "Portfolio Value",
+        data: [],
+        borderColor: "#ff69b4",
+        backgroundColor: "#ffe4f7",
+        tension: 0.3,
+        pointStyle: 'star',
+        pointRadius: 5,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              family: 'Comic Sans MS',
+              size: 14,
+            },
+            color: "#222"
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            callback: function(value) {
+              return value;
+            },
+            color: "#555",
+            font: {
+              family: 'Comic Sans MS'
+            }
+          },
+          title: {
+            display: true,
+            text: 'Date',
+            color: "#222",
+            font: {
+              size: 14,
+              family: 'Comic Sans MS'
+            }
+          }
+        },
+        y: {
+          ticks: {
+            callback: (value) => '$' + value.toLocaleString(),
+            color: "#555",
+            font: {
+              family: 'Comic Sans MS'
+            }
+          },
+          title: {
+            display: true,
+            text: 'Value',
+            color: "#222",
+            font: {
+              size: 14,
+              family: 'Comic Sans MS'
+            }
+          }
+        }
+      }
+    }
   });
 
   const assetTypeChart = new Chart(document.getElementById("assetTypeChart"), {
@@ -112,12 +179,13 @@ document.addEventListener("DOMContentLoaded", () => {
     assetTable.innerHTML = "";
     for (const asset of assets) {
       const normalizedType = asset.asset_type.charAt(0).toUpperCase() + asset.asset_type.slice(1).toLowerCase();
-      const normalizedName = asset.asset_name.replace(" Inc.", ""); // remove suffix if needed
-
-const logo = ASSETS[normalizedType]?.[normalizedName]?.logo || "";
-
-const imgHTML = logo ? `<img src="${logo}" alt="" style="height: 20px; vertical-align: middle; margin-right: 6px;">` : "";
-
+      const normalizedName = asset.asset_name.replace(" Inc.", "");
+  
+      const logo = ASSETS[normalizedType]?.[normalizedName]?.logo || "";
+      const imgHTML = logo
+        ? `<img src="${logo}" alt="${asset.asset_name}" style="height: 20px; vertical-align: middle; margin-right: 6px;">`
+        : "";
+  
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${imgHTML}${asset.asset_name}</td>
@@ -125,17 +193,21 @@ const imgHTML = logo ? `<img src="${logo}" alt="" style="height: 20px; vertical-
         <td>${asset.quantity}</td>
         <td>$${parseFloat(asset.purchase_price).toFixed(2)}</td>
         <td>${asset.purchase_date}</td>
-        <td><button class="btn" onclick="deleteAsset(${asset.id})">Delete</button></td>
+        <td><button class="btn" onclick="deleteAsset(${asset.id})">Sell Asset</button></td>
       `;
       assetTable.appendChild(row);
     }
   }
   
+  
 
   async function fetchCharts() {
     const res1 = await fetch("/api/charts/performance");
     const perf = await res1.json();
-    performanceChart.data.labels = perf.labels;
+    const formattedLabels = perf.labels.map(date =>
+      new Date(date).toLocaleDateString("en-US", { month: 'short', day: 'numeric' })
+    );
+    performanceChart.data.labels = formattedLabels;
     performanceChart.data.datasets[0].data = perf.values;
     performanceChart.update();
 
@@ -170,4 +242,6 @@ const imgHTML = logo ? `<img src="${logo}" alt="" style="height: 20px; vertical-
   fetchSummary();
   fetchAssets();
   fetchCharts();
+
+  document.getElementById("purchase_date").valueAsDate = new Date();
 });

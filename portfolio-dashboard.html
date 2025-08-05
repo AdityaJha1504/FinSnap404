@@ -70,7 +70,7 @@
         <input name="purchase_price" type="number" placeholder="Price" id="purchase_price" readonly required />
         <input name="purchase_date" type="date" required />
       </div>
-      <button class="btn" type="submit" style="margin-top: 1rem;">Add Asset</button>
+      <button class="btn" type="submit" style="margin-top: 1rem;">Buy Asset</button>
     </form>
 
     <table>
@@ -86,23 +86,68 @@
 
 
     <!-- EDUCATION MODULE -->
-    <section id="education" class="module-section" style="display:none">
-      <div class="card">
-        <h2>Learn Financial Literacy</h2>
-        <div class="sctn-portfolio">
-          <div class="portfolio-card">
-            <h3>Investing Basics</h3>
-            <iframe width="100%" height="200" src="https://www.youtube.com/embed/OtQAMUu04Ko" frameborder="0" allowfullscreen></iframe>
-            <div class="card-info">Learn the fundamentals of investing.</div>
-          </div>
-          <div class="portfolio-card">
-            <h3>Risk Management</h3>
-            <iframe width="100%" height="200" src="https://www.youtube.com/embed/2A7ISsl6wnA" frameborder="0" allowfullscreen></iframe>
-            <div class="card-info">Understand how to manage portfolio risk.</div>
-          </div>
-        </div>
+    <!-- EDUCATION MODULE -->
+<section id="education" class="module-section" style="display: none">
+  <div class="card">
+    <h2 style="text-align: center;">📚 Financial Education Center</h2>
+    <p style="text-align: center; font-style: italic; margin-bottom: 2rem;">
+      Expand your knowledge and make informed financial decisions.
+    </p>
+
+    <div class="education-grid">
+      <div class="education-section">
+        <h3>💰 Saving Money</h3>
+        <p>Learn strategies to build your savings effectively.</p>
+        <ul class="education-links">
+          <li><a href="https://www.investopedia.com/articles/personal-finance/040315/how-much-money-should-you-save-every-month.asp" target="_blank">How Much Should You Save Each Month? - Investopedia</a></li>
+          <li><a href="https://www.nerdwallet.com/article/banking/how-to-save-money" target="_blank">50 Ways to Save Money - NerdWallet</a></li>
+        </ul>
       </div>
-    </section>
+
+      <div class="education-section">
+        <h3>📈 Investing Basics</h3>
+        <p>Understand the fundamentals of investing.</p>
+        <ul class="education-links">
+          <li><a href="https://www.sec.gov/investor/pubs/tenthingstoconsider.htm" target="_blank">10 Things to Consider Before Investing - SEC</a></li>
+          <li><a href="https://www.bogleheads.org/wiki/Getting_started" target="_blank">Getting Started with Investing - Bogleheads</a></li>
+        </ul>
+      </div>
+
+      <div class="education-section">
+        <h3>🏦 Types of Assets</h3>
+        <p>Explore different asset classes and how to diversify.</p>
+        <ul class="education-links">
+          <li><a href="https://www.investopedia.com/terms/a/assetclasses.asp" target="_blank">Understanding Asset Classes - Investopedia</a></li>
+          <li><a href="https://www.fidelity.com/learning-center/investment-products/mutual-funds/asset-allocation-diversification" target="_blank">Asset Allocation & Diversification - Fidelity</a></li>
+        </ul>
+      </div>
+
+      <div class="education-section">
+        <h3>📊 Budgeting</h3>
+        <p>Master your spending and saving with smart budgeting.</p>
+        <ul class="education-links">
+          <li><a href="https://www.mint.com/budgeting-3/budget-101-how-to-budget-money" target="_blank">Budget 101: How to Budget - Mint</a></li>
+          <li><a href="https://www.youneedabudget.com/the-four-rules/" target="_blank">The Four Rules of Budgeting - YNAB</a></li>
+        </ul>
+      </div>
+
+      <div class="education-section">
+        <h3>🎯 Financial Planning</h3>
+        <p>Start planning for long-term financial success.</p>
+        <ul class="education-links">
+          <li><a href="https://www.kiplinger.com/retirement/retirement-planning/601044/retirement-planning-guide" target="_blank">Complete Retirement Planning Guide - Kiplinger</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="education-cta" style="text-align: center; margin-top: 3rem;">
+      <h3>🚀 Ready to Apply What You've Learned?</h3>
+      <p>Start tracking your assets and building your financial future today.</p>
+      <a href="#dashboard" onclick="showModule('dashboard')" class="btn">Go to Dashboard</a>
+    </div>
+  </div>
+</section>
+
 
     <footer>
       <p class="fnt-sml">© 2025 FinSnap404 — Designed with 💸 for Gen Z investors</p>
